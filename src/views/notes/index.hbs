@@ -18,12 +18,7 @@
             <div class="card-body">
                 <p class="card-text">{{description}}</p>
                 <button class="btn btn-danger btn-sm btn-block" type="button" data-toggle="modal" data-target=".modal"
-                    data-transfer={{_id}} data-note={{title}}>Delete it!</button>
-                <!-- OLD BUTTON
-                <form action="/notes/{{_id}}" method="post">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button class="btn btn-danger btn-sm btn-block" type="submit">Delete it!</button>
-                </form>-->
+                    data-transfer={{_id}} data-note="{{title}}">Delete it!</button>
                 <hr class="my-3">
                 <h6 class="text-muted"><i>{{created_at}}</i></h6>
             </div>
