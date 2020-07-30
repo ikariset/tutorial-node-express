@@ -1,0 +1,29 @@
+{{#if error}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error!</strong> {{error}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{{/if}}
+{{#each errors}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error!</strong> {{param}} -- {{msg}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{{/each}}
+{{#if status.0.success}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success!</strong>
+    {{#if status.0.title}}Note "{{status.0.title}}"{{/if}}
+    {{#if status.0.email}}User<strong>"{{status.0.email}}"</strong>{{/if}}
+    was {{status.0.method}} successfully...
+    {{#if status.0.title}}<strong><a href="/notes">Check
+            all Notes!</a></strong>{{/if}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{{/if}}

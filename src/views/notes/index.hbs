@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="{{#if notes}}col-md-3{{else}}mx-auto{{/if}} my-2">
+        <div class="card">
+            <div class="card-body">
+                <p class="lead">{{#if notes}}{{else}} There's no notes... {{/if}}Would you want to add a new note?</p>
+                <div class="d-block col-md-12"><a href="/notes/new" class="btn btn-success btn-md"><i
+                            class="fas fa-plus"></i></a></div>
+            </div>
+        </div>
+    </div>
+    {{#each notes}}
+    <div class="col-md-3 my-2">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h4 class="card-title col-md-9">{{title}}</h4>
+                <a href="/notes/edit/{{_id}}"><i class="fas fa-edit"></i></a>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{description}}</p>
+                <button class="btn btn-danger btn-sm btn-block" type="button" data-toggle="modal" data-target=".modal"
+                    data-transfer={{_id}} data-note={{title}}>Delete it!</button>
+                <!-- OLD BUTTON
+                <form action="/notes/{{_id}}" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="btn btn-danger btn-sm btn-block" type="submit">Delete it!</button>
+                </form>-->
+                <hr class="my-3">
+                <h6 class="text-muted"><i>{{created_at}}</i></h6>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+    <!--MODAL-->
+    <!-- Taken from Bootstrap's documentation -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal title</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>Make sure that you need to delete <strong>"<span class="note-title">Value</span>"</strong>.
+                        Confirm it?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <form action="/notes/" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn btn-danger btn-block" type="submit"><i class="fas fa-trash-alt"></i> Delete it!</button>
+                    </form>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>

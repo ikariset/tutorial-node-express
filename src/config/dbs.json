@@ -1,0 +1,14 @@
+{
+    "local": {
+        "host": "localhost",
+        "dbname": "notes-app",
+        "front-port": 3000,
+        "back-port": 3000
+    },
+    "qa": {
+        "host": "localhost",
+        "dbname": "notes-app",
+        "front-port": 3000,
+        "back-port": 3000
+    }
+}
